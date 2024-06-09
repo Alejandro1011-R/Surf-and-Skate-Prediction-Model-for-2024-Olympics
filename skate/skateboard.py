@@ -10,9 +10,9 @@ def leer_y_mostrar_csv(ruta_archivo):
     df = pd.read_csv(ruta_archivo)
     
     # Mostrar todos los elementos del DataFrame
-    pd.set_option('display.max_rows', None)  # Mostrar todas las filas
-    pd.set_option('display.max_columns', None)  # Mostrar todas las columnas
-    print(df)
+    #pd.set_option('display.max_rows', None)  # Mostrar todas las filas
+    #pd.set_option('display.max_columns', None)  # Mostrar todas las columnas
+    print(df.head)
 
 
 def get_pdf_links(url):
@@ -43,8 +43,9 @@ def comienza_con_entero(linea):
 
 
 def pdf_to_text(input_path, output_path):
+    
     with open(output_path, 'a', encoding='utf-8') as text_file:
-        text_file.write("last_name,first_name,total" + '\n')
+        #text_file.write(input_path + '\n')
         with pdfplumber.open(input_path) as pdf:
             text = ''
             page = 0
@@ -52,6 +53,28 @@ def pdf_to_text(input_path, output_path):
                 savelines = ""
                 text += pdf.pages[page].extract_text()
                 lines = text.split('\n')
+                headline = lines[0][0:10]
+                if headline.find(".") == -1:
+                    headline = input_path[6:16]    
+                headline = headline.replace(".", "/")
+                sex = ""
+                if input_path.find("Women") != -1 :
+                    sex = "Womens"
+                if input_path.find("Men") != -1 :
+                    sex = "Mens"
+                headline = headline + "," + sex
+                place = ""
+                if input_path.find("Park") != -1 :
+                    place = "Park"
+                if input_path.find("Street") != -1 :
+                    place = "Street"
+                if input_path.find("PARK") != -1 :
+                    place = "Park"
+                if input_path.find("SREET") != -1 :
+                    place = "Street"
+                if place == "" :
+                    place = "Street"
+                headline = headline + "," + place
                 for line in lines:
                     if comienza_con_entero(line) and line[2] != ".":
                         lines = line.split(" ")
@@ -87,7 +110,7 @@ def pdf_to_text(input_path, output_path):
                                     val = float(lista[i])
                                     if val > max:
                                         max = val
-                            outline = lista[1] + "," + lista[2] + "," + str(max)
+                            outline = headline + "," + lista[1] + "," + lista[2] + "," + str(max)
                             
                             outline = outline+ '\n'
                             print(outline)
@@ -109,7 +132,7 @@ def process_all_pdfs(input_folder, output_folder):
     for pdf_file in pdf_files:
 
         input_path = os.path.join(input_folder, pdf_file)
-        output_file_name = "data.csv"# os.path.splitext(pdf_file)[0] + '.txt'
+        output_file_name = "skateboard.csv"# os.path.splitext(pdf_file)[0] + '.txt'
         output_path = os.path.join(output_folder, output_file_name)
 
         pdf_to_text(input_path, output_path)
@@ -121,7 +144,7 @@ def process_all_pdfs(input_folder, output_folder):
 input_folder = 'datos'
 output_folder = 'texts'
 process_all_pdfs(input_folder, output_folder)
-
+#leer_y_mostrar_csv("E:\\universidad\\3er ano\\Skate\\procesa\\texts\\data.csv")
 
 '''pdf_links = get_pdf_links("https://www.worldskate.org/skateboarding/results/category/1222-results.html")
 
