@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=latex 2023.2.15)  10 JUN 2024 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=latex 2023.2.15)  11 JUN 2024 22:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./informe.tex
-(informe.tex
+**./inform.tex
+(inform.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28>
 (C:\Users\Miguel Alejandro\AppData\Local\Programs\MiKTeX\tex/latex/base\article
@@ -207,8 +207,8 @@ File: l3backend-dvips.def 2022-09-28 L3 backend support: dvips
 \g__pdf_backend_annotation_int=\count283
 \g__pdf_backend_link_int=\count284
 \g__pdf_backend_link_sf_int=\count285
-) (informe.aux)
-\openout1 = `informe.aux'.
+) (inform.aux)
+\openout1 = `inform.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
@@ -292,14 +292,14 @@ Overfull \hbox (1.13246pt too wide) in paragraph at lines 357--358
  Se iden-ti-fi-caron posi-bles ^^Sareas de mejora
  []
 
-[10] [11] (informe.aux) ) 
+[10] [11] [12] [13] (inform.aux) ) 
 Here is how much of TeX's memory you used:
  3675 strings out of 475386
- 57868 string characters out of 2771705
- 416394 words of memory out of 3000000
+ 57856 string characters out of 2771705
+ 416391 words of memory out of 3000000
  25055 multiletter control sequences out of 15000+600000
  476764 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,7n,62p,1265b,312s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 55i,7n,62p,1264b,312s stack positions out of 10000i,1000n,20000p,200000b,80000s
 
-Output written on informe.dvi (11 pages, 36728 bytes).
+Output written on inform.dvi (13 pages, 43572 bytes).
